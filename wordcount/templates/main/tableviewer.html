@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block start %}
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Domain Name</th>
+        <th scope="col">WordCount</th>
+        <th scope="col">favourite</th>
+        <th scope="col">Web-Links</th>
+        <th scope="col">Media-Links</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for eachdata in urldata %}
+      <tr>
+        <th scope="row">{{forloop.counter}}</th>
+        <td>{{eachdata.url}}</td>
+        <td>{{eachdata.word_count}}</td>
+        <td>{{eachdata.favourite}}</td>
+        <td>{{eachdata.web_links}}</td>
+        <td>{{eachdata.media_links}}</td>
+        <td>
+            <a href="/delete-receipes/{{eachdata.id}}">
+                <button type="submit" class="btn btn-outline-warning">Add to Favoutire</button>
+            </a>
+            <a href="/update-data/{{eachdata.id}}">
+                <button type="submit" class="btn btn-outline-info">Update</button>
+            </a>
+            <a href="/delete-data/{{eachdata.id}}">
+                <button type="submit" class="btn btn-outline-danger">Delete</button>
+            </a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+{% endblock %}

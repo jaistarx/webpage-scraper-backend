@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block start %}
+
+<form class="container" method="post"> 
+    {% csrf_token %}
+    <div class="mb-3">
+      <label class="form-label">Enter valid URL</label>
+      <input name="url" type="text" value="{{url}}" class="form-control">
+    </div>
+    <a href="/table-viewer/">
+        <button type="submit" class="btn btn-outline-primary">Submit</button>
+    </a>
+</form>
+
+{% endblock %}
