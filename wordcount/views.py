@@ -4,6 +4,8 @@ from django.http.response import JsonResponse
 from .models import DataStore
 from rest_framework.response import Response
 
+def baseView(request):
+    return JsonResponse("Base Url Works", safe=False)
 
 class TableDataView(APIView):
 
@@ -24,7 +26,7 @@ class TableDataView(APIView):
                 serializer = WordCountSerializer(data, many=True)
             return Response(serializer.data)
         except:
-            return JsonResponse("Item Does Not Exist", safe=False)
+            return JsonResponse("Url Does Not Exist", safe=False)
 
     def post(self, request):
         data = request.data
